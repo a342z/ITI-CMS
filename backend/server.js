@@ -28,4 +28,4 @@ mongoose
 app.listen(process.env.PORT_NUMBER,()=>{console.info("Server is up and running");});
 
 //Routes
-app.use(testRouter);
+app.use(doctorRouter);
