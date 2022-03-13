@@ -1,31 +1,66 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const morgan = require("morgan");
-const app = express();
+//***************************requires********************* */
 require("dotenv").config();
+//call Express
+const express = require("express");
+// getting body parser
+const body_parser = require("body-parser");
+// getting morgan
+const morgan = require("morgan");
+//getting mongoose
+const mongoose = require("mongoose");
 
-//import routes
-const testRouter = require("./routes/testRouter");
+//getting my reouters
+const testRouter = require("./routes/testRouter.js");
+const prescriptionRouter = require("./routes/prescriptionRouter");
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan("tiny"));
-app.use(cors());
+//************************DB Server****************************** */
+// create Server
+const app = express();
 
-//Connecting to Data Base
+//open the server on port number 8080
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => {
-    console.log("DB Connected");
+    console.log("Database connected");
+
+    app.listen(process.env.PORT_NUMBER || 8080, () => {
+      console.log("I am Listenining Don't Worry");
+    });
   })
-  .catch(() => {
-    console.log("DB Error.");
+  .catch((error) => {
+    console.log("DB problem");
   });
+// app.listen(process.env.PORT||8080,()=>{
+//     console.log("I am Listenining Don't Worry")
+// });
 
-//Listining to PORT
-app.listen(process.env.PORT_NUMBER,()=>{console.info("Server is up and running");});
+// First MW =>  request url and method-request- using morgan package
+app.use(morgan(":method :url"));
+//second MW => // CORS MW that allow access control origin, methods, headers
+// to make any other website communicate with my server as" RESTful API"
+app.use((request, response, next) => {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header(
+    "Access-Control-Allow-Methods",
+    "GET,POST,DELETE,PUT,OPTIONS"
+  );
+  response.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
+  next();
+});
 
-//Routes
+// calling body parser
+app.use(body_parser.json());
+app.use(body_parser.urlencoded({ extended: false }));
+//************************Routers******************* */
 app.use(testRouter);
+app.use(prescriptionRouter);
+//third MW => //************ */ NOT Found => if my routers don't exist ***************
+app.use((request, response, next) => {
+  response.status(404).json({ data: "Not Found" });
+});
+
+//************************ */ Error MW**************************
+app.use((error, request, response, next) => {
+  let status = error.status || 500;
+  response.status(status).json({ Error: error + "" });
+});
