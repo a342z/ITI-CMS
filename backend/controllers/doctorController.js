@@ -33,20 +33,17 @@ exports.getAllDoctors = (request, response, next) => {
 
     // if (request.role == "admin" || request.role == "doctor") {
 
- bcrypt.hash(request.body.password, 10) 
     let doctorObj = new Speaker({
         // _id: request.body.id,
         name: request.body.name,
-        email: request.body.email,
         image:"http://localhost:8080/images/"+ request.file.filename,
-        password:hash,
         age: request.body.age,
         spec: request.body.spec,
-        appointmentDate: request.body.appointmentDate,
-        availability: request.body.availability,
+        // appointmentDate: request.body.appointmentDate,
+        // availability: request.body.availability,
+        // report:request.body.report,
         phone: request.body.phone,
-        isMarried: request.body.isMarried,
-        rating: request.body.rating
+        // rating: request.body.rating
     })
 
     doctorObj.save()
@@ -79,16 +76,11 @@ exports.updateDoctor = (request, response, next) => {
         $set: {
             // _id: request.body.id,
             name: request.body.name,
-            email: request.body.email,
             image:request.body.image,
-            password: request.body.password,
             age: request.body.age,
             spec: request.body.spec,
-            appointmentDate: request.body.appointmentDate,
-            availability: request.body.availability,
+            // report:request.body.report,
             phone: request.body.phone,
-            isMarried: request.body.isMarried,
-            rating: request.body.rating
         }
     }).then(data => {
 
