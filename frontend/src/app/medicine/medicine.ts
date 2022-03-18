@@ -6,9 +6,6 @@ export interface Medicine {
     price:number
     image:string
     type:string
-    form:string
-    usage:any
-    dose:object
-    side_effects:any
+    side_effects:string
     description:string
 }

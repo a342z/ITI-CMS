@@ -16,12 +16,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
   }
@@ -33,12 +27,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
   }
@@ -51,12 +39,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
     },
@@ -68,12 +50,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
     },
@@ -85,12 +61,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
     },
@@ -102,12 +72,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
     },
@@ -119,12 +83,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
     },
@@ -136,12 +94,6 @@ export class MedicineListComponent implements OnInit {
       image:"dvrvrvrvrvrvrvrb",
       manufacturer:"icvkecve",
       type:"tablet",
-      form:"nvceknv",
-      dose:{
-        child:"niknoijnmo",
-        adult:"jknboioi"
-      },
-      usage:"fbornborbr",
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
     }
@@ -178,10 +130,7 @@ export class MedicineListComponent implements OnInit {
         item.image=this.medicine_add.image;
         item.manufacturer=this.medicine_add.manufacturer;
         item.type=this.medicine_add.type;
-        item.form=this.medicine_add.form;
         item.description=this.medicine_add.description;
-        item.usage=this.medicine_add.usage;
-        item.dose=this.medicine_add.dose;
         item.side_effects=this.medicine_add.side_effects;
         
       }
@@ -197,9 +146,6 @@ export class MedicineListComponent implements OnInit {
     price:number,
     image:string,
     type:string,
-    form:string,
-    usage:any,
-    dose:object,
     side_effects:any,
     description:string
     ){
@@ -210,9 +156,6 @@ export class MedicineListComponent implements OnInit {
       this.medicine_add.price=price
       this.medicine_add.image=image
       this.medicine_add.type=type
-      this.medicine_add.form=form
-      this.medicine_add.usage=usage
-      this.medicine_add.dose=dose
       this.medicine_add.side_effects=side_effects
       this.medicine_add.description=description
       this.add_display="flex"
@@ -226,9 +169,6 @@ export class MedicineListComponent implements OnInit {
     price:number,
     image:string,
     type:string,
-    form:string,
-    usage:any,
-    dose:object,
     side_effects:any,
     description:string
     ){
@@ -239,9 +179,6 @@ export class MedicineListComponent implements OnInit {
       this.info.price=price
       this.info.image=image
       this.info.type=type
-      this.info.form=form
-      this.info.usage=usage
-      this.info.dose=dose
       this.info.side_effects=side_effects
       this.info.description=description
       this.info_open()
