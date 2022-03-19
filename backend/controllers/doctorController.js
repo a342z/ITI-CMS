@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
-const Speaker = require("./../models/doctorSchema");
-const bcrypt = require('bcrypt');
+const Doctor = require("./../models/doctorSchema");
+// const bcrypt = require('bcrypt');
 
 //get all doctors
 exports.getAllDoctors = (request, response, next) => {
@@ -33,17 +33,13 @@ exports.getAllDoctors = (request, response, next) => {
 
     // if (request.role == "admin" || request.role == "doctor") {
 
-    let doctorObj = new Speaker({
-        // _id: request.body.id,
+    let doctorObj = new Doctor({
+        _id: request.body.id,
         name: request.body.name,
-        image:"http://localhost:8080/images/"+ request.file.filename,
+        image:request.body.name,
         age: request.body.age,
         spec: request.body.spec,
-        // appointmentDate: request.body.appointmentDate,
-        // availability: request.body.availability,
-        // report:request.body.report,
         phone: request.body.phone,
-        // rating: request.body.rating
     })
 
     doctorObj.save()

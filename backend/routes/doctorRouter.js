@@ -4,9 +4,9 @@ const router = express.Router();
 const controller = require("./../controllers/doctorController");
 
 router.route("/doctors")
-    .get(isAuth,[], controller.getAllDoctors)
+    .get([], controller.getAllDoctors)
 
-    .post(isAuth, [
+    .post( [
         //body("name").notEmpty().withMessage("name shouldn't be Empty."),
         // body("email").notEmpty().withMessage("email shouldn't be Empty."),
         // body("password").notEmpty().withMessage("password shouldn't be Empty."),
@@ -17,12 +17,12 @@ router.route("/doctors")
     ], controller.addDoctor)
 
 router.route("/doctors/:id")
-   .delete(isAuth, [
+   .delete([
         body("_id").notEmpty().withMessage("_id shouldn't be Empty.")
     ], controller.deleteDoctor)
 
 router.route("/doctors/:id")
-    .put(isAuth, [
+    .put( [
         // body("name").notEmpty().withMessage("name shouldn't be Empty."),
         // body("email").notEmpty().withMessage("email shouldn't be Empty."),
         // body("password").notEmpty().withMessage("password shouldn't be Empty."),
@@ -35,6 +35,6 @@ router.route("/doctors/:id")
 
 
 router.route("/doctors/:id")
-    .get(isAuth, [], controller.getDoctor)
+    .get( [], controller.getDoctor)
 
 module.exports = router;

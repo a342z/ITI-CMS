@@ -8,6 +8,8 @@ require("dotenv").config();
 
 //import routes
 const testRouter = require("./routes/testRouter");
+const doctorRouter = require("./routes/doctorRouter");
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
