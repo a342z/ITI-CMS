@@ -47,7 +47,7 @@ import { ErrorComponent } from './error/error.component';
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
 
-    {provide:"baseUrl",useValue:"http://localhost:8080/"}
+    {provide:"baseURL",useValue:"http://localhost:8080/"}
   ],
   bootstrap: [AppComponent]
 })
