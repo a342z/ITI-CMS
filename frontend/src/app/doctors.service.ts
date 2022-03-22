@@ -42,7 +42,7 @@ export class DoctorsService {
     return this.http.put<Doctor>(this.baseURL,doctor);
   }
 
-  constructor(public http:HttpClient,@Inject('baseUrl') public baseURL:string) {
+  constructor(public http:HttpClient,@Inject('baseURL') public baseURL:string) {
     this.baseURL+="doctors/"
 
    }
