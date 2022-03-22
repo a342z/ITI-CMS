@@ -6,8 +6,7 @@ const morgan = require("morgan");
 const app = express();
 require("dotenv").config();
 
-//import routes
-const testRouter = require("./routes/testRouter");
+
 //import Patient
 const patientRouter =require("./routers/patientRouter");
 
@@ -36,7 +35,6 @@ app.listen(process.env.PORT_NUMBER,()=>{
 
 
 //Routes
-app.use(testRouter);
 app.use(patientRouter);
 
 
