@@ -19,6 +19,8 @@ import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,11 +45,13 @@ import { ErrorComponent } from './error/error.component';
     ButtonModule,
     FormsModule,
     NgbModule,
+
+
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
+      { provide: "baseURL", useValue: "http://localhost:8080/" }
 
-    {provide:"baseURL",useValue:"http://localhost:8080/"}
   ],
   bootstrap: [AppComponent]
 })

@@ -9,6 +9,9 @@ require("dotenv").config();
 //import routes
 const testRouter = require("./routes/testRouter");
 const doctorRouter = require("./routes/doctorRouter");
+const medicine = require("./routes/medicineRouter");
+const appointmentRouter  = require("./routes/appointmentRouter");
+
 
 
 app.use(bodyParser.json());
@@ -31,3 +34,7 @@ app.listen(process.env.PORT_NUMBER,()=>{console.info("Server is up and running")
 
 //Routes
 app.use(doctorRouter);
+app.use(testRouter);
+app.use(medicine);
+app.use(appointmentRouter);
+
