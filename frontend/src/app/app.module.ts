@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule ,HTTP_INTERCEPTORS} from "@angular/common/http"
-import { RouterModule, Routes } from '@angular/router';
 import { ArraySplicePipe } from './array-splice.pipe';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
@@ -17,17 +16,9 @@ import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component'
 import { DoctorDetailsComponent } from './doctor/doctor-details/doctor-details.component';
 import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
 import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
-const routes:Routes=[
-  {path:"doctors",component:DoctorListComponent,children:
-  [
-    {path:"details/:id",component:DoctorDetailsComponent},
-    {path:"edit/:id",component:DoctorEditComponent},
+import { HomeComponent } from './home/home.component';
+import { ErrorComponent } from './error/error.component';
 
-  ]},
-  {path:"doctors/add",component:DoctorAddComponent},
-
-
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +26,9 @@ const routes:Routes=[
     DoctorAddComponent,
     DoctorDetailsComponent,
     DoctorListComponent,
-    DoctorEditComponent
+    DoctorEditComponent,
+    HomeComponent,
+    ErrorComponent
 
   ],
   imports: [
@@ -50,8 +43,6 @@ const routes:Routes=[
     ButtonModule,
     FormsModule,
     NgbModule,
-    RouterModule.forRoot(routes),
-    NgbModule
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
