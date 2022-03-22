@@ -1,22 +1,62 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from "@angular/common/http"
+import { ArraySplicePipe } from './array-splice.pipe';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+import {ImageModule} from 'primeng/image';
+import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
+import { DoctorDetailsComponent } from './doctor/doctor-details/doctor-details.component';
+import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
+import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
+import { HomeComponent } from './home/home.component';
+import { ErrorComponent } from './error/error.component';
+import { MedicineModule } from './medicine/medicine.module';
+import { AppointmentModule } from './appointment/appointment.module';
 import { PatientModule } from './patient/patient.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ArraySplicePipe,
+    DoctorAddComponent,
+    DoctorDetailsComponent,
+    DoctorListComponent,
+    DoctorEditComponent,
+    HomeComponent,
+    ErrorComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    BrowserAnimationsModule,
+    CoreModule,
     HttpClientModule,
+    ImageModule,
+    CheckboxModule,
+    DialogModule,
+    ButtonModule,
     FormsModule,
-    PatientModule,
+    NgbModule,
+    MedicineModule,
+    AppointmentModule  
+      PatientModule,
+    
   ],
-  providers: [],
+  providers: [
+    // {provide:HTTP_INTERCEPTORS,multi:true},
+      { provide: "baseURL", useValue: "http://localhost:8080/" }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
