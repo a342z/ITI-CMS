@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MedicineModule } from './medicine/medicine.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppointmentModule } from './appointment/appointment.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,8 +19,12 @@ import { MedicineModule } from './medicine/medicine.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MedicineModule
+    HttpClientModule,
+    AppointmentModule  
   ],
-  providers: [],
+  providers: [
+    { provide: "baseURL", useValue: "http://localhost:8080/" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
