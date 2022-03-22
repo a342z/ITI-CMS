@@ -34,7 +34,7 @@ exports.getAllDoctors = (request, response, next) => {
     // if (request.role == "admin" || request.role == "doctor") {
 
     let doctorObj = new Doctor({
-        _id: request.body.id,
+        _id: request.body._id,
         name: request.body.name,
         image:request.body.name,
         age: request.body.age,
@@ -70,7 +70,7 @@ exports.updateDoctor = (request, response, next) => {
 
     Doctor.updateOne({ _id: request.body._id }, {
         $set: {
-            // _id: request.body.id,
+            // _id: request.body._id,
             name: request.body.name,
             image:request.body.image,
             age: request.body.age,
