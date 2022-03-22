@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+
 @import "./../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "./../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css";
 
@@ -7,4 +7,7 @@ body
   margin: 0;
   padding:0;
   overflow-x: hidden;
+  
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+

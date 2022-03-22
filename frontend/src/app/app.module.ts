@@ -18,6 +18,9 @@ import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component'
 import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
+import { MedicineModule } from './medicine/medicine.module';
+import { AppointmentModule } from './appointment/appointment.module';
+
 
 @NgModule({
   declarations: [
@@ -43,11 +46,14 @@ import { ErrorComponent } from './error/error.component';
     ButtonModule,
     FormsModule,
     NgbModule,
+    MedicineModule,
+    AppointmentModule  
+    
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
+      { provide: "baseURL", useValue: "http://localhost:8080/" }
 
-    {provide:"baseUrl",useValue:"http://localhost:8080/"}
   ],
   bootstrap: [AppComponent]
 })
