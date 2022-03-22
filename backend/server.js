@@ -11,12 +11,16 @@ const mongoose = require("mongoose");
 
 
 
+
+//import Patient
+const patientRouter =require("./routes/patientRouter");
 const clinicRouter = require("./routes/clinicRouter");
 const testRouter = require("./routes/testRouter");
 const doctorRouter = require("./routes/doctorRouter");
 const medicine = require("./routes/medicineRouter");
 const appointmentRouter  = require("./routes/appointmentRouter");
 const prescriptionRouter = require("./routes/prescriptionRouter");
+
 
 
 
@@ -28,15 +32,19 @@ const app = express();
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => {
+
     console.log("Database connected");
 
     app.listen(process.env.PORT_NUMBER || 8080, () => {
       console.log("I am Listenining Don't Worry");
     });
+
   })
   .catch((error) => {
     console.log("DB problem");
   });
+
+
 // app.listen(process.env.PORT||8080,()=>{
 //     console.log("I am Listenining Don't Worry")
 // });
@@ -73,10 +81,17 @@ app.use(doctorRouter);
 app.use(testRouter);
 app.use(medicine);
 app.use(appointmentRouter);
+app.use(patientRouter);
 
-//************************ */ Error MW**************************
-app.use((error, request, response, next) => {
+
+//Not found MW
+app.use((request, response) => {
+  response.status(404).json({ data: "Not Found" });
+})
+
+//Error MW
+app.use((error, request, response, next) => {  
   let status = error.status || 500;
   response.status(status).json({ Error: error + "" });
-});
+})
 

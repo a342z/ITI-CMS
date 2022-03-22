@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { MedicineModule } from './medicine/medicine.module';
 import { AppointmentModule } from './appointment/appointment.module';
-
+import { PatientModule } from './patient/patient.module';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { AppointmentModule } from './appointment/appointment.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
@@ -48,6 +49,7 @@ import { AppointmentModule } from './appointment/appointment.module';
     NgbModule,
     MedicineModule,
     AppointmentModule  
+      PatientModule,
     
   ],
   providers: [
