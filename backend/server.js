@@ -70,9 +70,9 @@ app.use(body_parser.urlencoded({ extended: false }));
 app.use(testRouter);
 app.use(prescriptionRouter);
 //third MW => //************ */ NOT Found => if my routers don't exist ***************
-app.use((request, response, next) => {
-  response.status(404).json({ data: "Not Found" });
-});
+// app.use((request, response, next) => {
+//   response.status(404).json({ data: "Not Found" });
+// });
 
 
 //Routes
