@@ -1,0 +1,18 @@
+<p-dialog header="Patient Details" [(visible)]="display" [style]="{width: '80vw', background:'lightgray'}">
+
+
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-6'>
+      <h3>Name : {{patient?.name}}</h3>
+      <h3>Address: {{patient?.address }}</h3>
+      <h3>Mobile: {{patient?.phoneNumber}}</h3>
+      <h3>Status: {{patient?.isMarried ?"Married":"Single"}}</h3>
+      <h3>Age: {{patient?.age}}</h3>
+      <h3>Gender: {{patient?.gender}}</h3>
+      </div>
+
+    </div>
+  </div>
+</p-dialog>
+<button mat-raised-button color="accent" (click)="showPatient()">Details</button>
