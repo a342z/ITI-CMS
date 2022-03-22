@@ -8,6 +8,8 @@ require("dotenv").config();
 
 //import routes
 const testRouter = require("./routes/testRouter");
+//import Patient
+const patientRouter =require("./routers/patientRouter");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,13 +21,32 @@ mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => {
     console.log("DB Connected");
+
+    //Listing to PORT
+app.listen(process.env.PORT_NUMBER,()=>{
+  console.info("Server is up and running");
+});
+
   })
   .catch(() => {
     console.log("DB Error.");
   });
+  
 
-//Listining to PORT
-app.listen(process.env.PORT_NUMBER,()=>{console.info("Server is up and running");});
+
 
 //Routes
 app.use(testRouter);
+app.use(patientRouter);
+
+
+//Not found MW
+app.use((request, response) => {
+  response.status(404).json({ data: "Not Found" });
+})
+
+//Error MW
+app.use((error, request, response, next) => {  
+  let status = error.status || 500;
+  response.status(status).json({ Error: error + "" });
+})
