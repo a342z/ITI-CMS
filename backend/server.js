@@ -9,9 +9,16 @@ const morgan = require("morgan");
 //getting mongoose
 const mongoose = require("mongoose");
 
-//getting my reouters
-const testRouter = require("./routes/testRouter.js");
+
+
+const clinicRouter = require("./routes/clinicRouter");
+const testRouter = require("./routes/testRouter");
+const doctorRouter = require("./routes/doctorRouter");
+const medicine = require("./routes/medicineRouter");
+const appointmentRouter  = require("./routes/appointmentRouter");
 const prescriptionRouter = require("./routes/prescriptionRouter");
+
+
 
 //************************DB Server****************************** */
 // create Server
@@ -59,8 +66,17 @@ app.use((request, response, next) => {
   response.status(404).json({ data: "Not Found" });
 });
 
+
+//Routes
+app.use(clinicRouter);
+app.use(doctorRouter);
+app.use(testRouter);
+app.use(medicine);
+app.use(appointmentRouter);
+
 //************************ */ Error MW**************************
 app.use((error, request, response, next) => {
   let status = error.status || 500;
   response.status(status).json({ Error: error + "" });
 });
+
