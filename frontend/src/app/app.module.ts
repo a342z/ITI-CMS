@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MedicineModule } from './medicine/medicine.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,11 +17,10 @@ import { AppointmentModule } from './appointment/appointment.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    AppointmentModule
-
-    
+    MedicineModule
+    HttpClientModule,
+    AppointmentModule  
   ],
   providers: [
     { provide: "baseURL", useValue: "http://localhost:8080/" }
