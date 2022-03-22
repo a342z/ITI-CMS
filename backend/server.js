@@ -8,7 +8,7 @@ require("dotenv").config();
 
 
 //import Patient
-const patientRouter =require("./routers/patientRouter");
+const patientRouter =require("./routes/patientRouter");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

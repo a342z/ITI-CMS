@@ -34,13 +34,7 @@
 
         <td>
           <div class="d-flex justify-content-evenly">
-            <!-- <button mat-fab color="info" (click)="deletePatient(item._id)" ><mat-icon>delete</mat-icon></button> -->
             <button type="button" class="btn btn-primary"label="Delete" (click)="deletePatient(item._id)" >delete</button>
-
-              <!-- <button mat-mini-fab color="warn" >
-                <mat-icon>delete</mat-icon>
-              </button> -->
-
 
             <app-patient-edit [id]="item._id"></app-patient-edit>
             <app-patient-details [id]="item._id" ></app-patient-details>

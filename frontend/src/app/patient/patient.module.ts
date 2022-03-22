@@ -5,7 +5,8 @@ import { PatientDetailsComponent } from './patient-details/patient-details.compo
 import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
 import { FormsModule } from '@angular/forms';
-
+import {DialogModule} from 'primeng/dialog';
+import {ButtonModule} from 'primeng/button';
 
 
 @NgModule({
@@ -17,7 +18,9 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    DialogModule,
+    ButtonModule
   ],
   exports:[
     PatientAddComponent,
