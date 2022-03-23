@@ -16,10 +16,10 @@ router
     controller.add_medicine
   )
 
-  .delete(
+  //.delete(
     //[body("id").notEmpty().withMessage("ID Should be a object_ID")],
-    controller.delete_medicine
-  )
+    //controller.delete_medicine
+  //)
 
   .put(
     controller.update_medicine
@@ -28,6 +28,7 @@ router
 
 router
   .route("/medicine/:id")
+  .delete(controller.delete_medicine)
   .get(
     controller.show_medicine
   );

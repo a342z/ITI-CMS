@@ -9,10 +9,13 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { AppointmentTableComponent } from './appointment/appointment-table/appointment-table.component';
+import { MedicineModule } from './medicine/medicine.module';
+import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
 
 const routes:Routes=[
   {path:"home",component:HomeComponent},
   { path: "appointments", component: AppointmentTableComponent },
+  { path: "medicine", component: MedicineListComponent },
   {path:"",redirectTo:"/home",pathMatch:"full"},
   {path:"doctors",component:DoctorListComponent,children:
   [

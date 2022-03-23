@@ -4,7 +4,7 @@
 <div class="container">
   <a class="navbar-brand" href="#">
 
-    <img width="70px" height="40" src="../../../assets/img//logo.jpg" alt="">
+    <img width="70px" height="40px" src="../../../assets/img//logo.jpg" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -25,6 +25,9 @@
         <a routerLink="/events" routerLinkActive="lactive" class="btn btn-dark">Appointment</a>|
       </li>
       <li class="nav-item px-3">
+        <a [routerLink]="['/medicine']" routerLinkActive="lactive" class="btn btn-dark">Medicine</a>
+      </li>
+      <li class="nav-item px-3">
         <a routerLink="/about" routerLinkActive="lactive" class="btn btn-dark">About</a>|
       </li>
       <li class="nav-item px-3">
@@ -32,7 +35,7 @@
 
       </li>
       <li class="nav-item px-3">
-        <a routerLink="/register" routerLinkActive="lactive" class="btn btn-outline-success">Register Now !</a>|
+        <a routerLink="/register" routerLinkActive="lactive" class="btn btn-outline-success">Register</a>|
     </li>
     </ul>
     <div class="d-flex">
