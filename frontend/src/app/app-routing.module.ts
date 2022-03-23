@@ -21,6 +21,10 @@ import { PatientDetailsComponent } from './patient/patient-details/patient-detai
 import { PatientEditComponent } from './patient/patient-edit/patient-edit.component';
 import { LoginComponent } from './login/login.component';
 
+import { ClinicListComponent } from './clinic/clinic-list/clinic-list.component';
+import { ClinicAddComponent } from './clinic/clinic-add/clinic-add.component';
+import { ClinicEditComponent } from './clinic/clinic-edit/clinic-edit.component';
+import { ClinicDetailsComponent } from './clinic/clinic-details/clinic-details.component';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -52,6 +56,12 @@ const routes: Routes = [
   },
   { path: 'prescription', component: PrescriptionListComponent, canActivate:[LoginGuard] },
   { path: 'doctors/add', component: DoctorAddComponent, canActivate:[LoginGuard] },
+  {path:"clinics",component:ClinicListComponent,canActivate:[LoginGuard],children:
+  [
+    {path:"details/:id",component:ClinicDetailsComponent},
+    {path:"edit/:id",component:ClinicEditComponent},
+  ]},
+  {path:"clinics/add",component:ClinicAddComponent , canActivate:[LoginGuard]},
   { path: '**', component: ErrorComponent },
 ];
 @NgModule({

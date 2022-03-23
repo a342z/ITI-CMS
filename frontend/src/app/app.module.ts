@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
 
 import { PrescriptionModule } from '../app/prescription/prescription.module';
 import { LoginComponent } from './login/login.component';
+import { ClinicModule } from './clinic/clinic.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ErrorComponent, LoginComponent],
@@ -46,7 +47,8 @@ import { LoginComponent } from './login/login.component';
     DoctorModule,
     RouterModule,
     CardModule,
-    InputTextModule
+    InputTextModule,
+    ClinicModule
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
