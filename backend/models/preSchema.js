@@ -3,23 +3,23 @@ const increment = require("mongoose-sequence")(mongoose);
 const schema = new mongoose.Schema(
   {
     _id: Number,
-    doctorName: {
-      type: String,
-      required: true,
-      ref: "doctors",
+    doctor: {
+      type: Number,
+      // required: true,
+      ref: "doctor",
     },
-    patientName: {
-      type: String,
-      required: true,
-      ref: "patients",
+    patient: {
+      type: Number,
+      // required: true,
+      ref: "patient",
     },
-    medecineName: [
+    medicine: [
       {
         type: Number,
-        ref: "medecine",
+        ref: "medicine_schema",
       },
     ],
-    purchaseDate: {
+    date: {
       type: Date,
     },
   },
