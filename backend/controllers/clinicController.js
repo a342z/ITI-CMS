@@ -105,10 +105,10 @@ exports.updateClinic = async (request, response, next) => {
 }
 exports.deleteClinic = async (request, response, next) => {
     try {
-        if (!ObjectId.isValid(request.params.id)) next();
-        const clinic = await Clinic.findOne({ _id: req.params.id });
+        if (!request.params.id) next();
+        const clinic = await Clinic.findOne({ _id: request.params.id });
         if (!clinic) next();
-        await speaker.delete();
+        await clinic.delete();
         response.status(200).json({ data: `clinic deleted ` })
     } catch (error) {
         next(error)

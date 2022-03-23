@@ -12,31 +12,25 @@ import {ImageModule} from 'primeng/image';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
-import { DoctorDetailsComponent } from './doctor/doctor-details/doctor-details.component';
-import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
-import { DoctorAddComponent } from './doctor/doctor-add/doctor-add.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
 import { MedicineModule } from './medicine/medicine.module';
 import { AppointmentModule } from './appointment/appointment.module';
+import { PatientModule } from './patient/patient.module';
+import { DoctorModule } from './doctor/doctor.module';
+import { ClinicModule } from './clinic/clinic.module';
 
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    ArraySplicePipe,
-    DoctorAddComponent,
-    DoctorDetailsComponent,
-    DoctorListComponent,
-    DoctorEditComponent,
     HomeComponent,
     ErrorComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
@@ -47,7 +41,11 @@ import { AppointmentModule } from './appointment/appointment.module';
     FormsModule,
     NgbModule,
     MedicineModule,
-    AppointmentModule  
+    AppointmentModule,  
+    PatientModule,
+    DoctorModule,
+    ClinicModule,
+    RouterModule
     
   ],
   providers: [

@@ -1,0 +1,81 @@
+<!-- Table for Clinics Data -->
+
+<div class="container">  
+
+    <table class="table"  *ngIf="clinics?.length">
+      <thead class="table-dark">
+        <tr>
+          <td><h3>Search For clinics</h3>
+            <input class="col-12 p-0" type="text" name="" id="" [(ngModel)]="query" />
+          </td>
+  
+          <td>
+            <a class="btn btn-primary col-12 " [routerLink]="['/clinics','add']">
+              Add New clinic
+              </a>
+          </td><td></td>
+          <td><button
+            class="btn btn-outline-warning col-12"
+            (click)="toggleImage($event.target)"
+          >
+            Hide Image
+          </button></td>
+          <td>
+            <button
+            class="btn btn-outline-warning col-12"
+            (click)="load()"
+          >
+            load
+          </button>
+          </td><td></td><td></td>
+        </tr>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>specialization</th>
+          <th>phone</th>
+          <th *ngIf="showAndHideImage">image</th>
+          <th>operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+          let item of clinics"
+          appHighlight="#DFDFDF"
+          dcolor="white"
+        >
+          <td>{{ item._id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.doctor }}</td>
+
+
+  
+          <td>
+            <div class="d-flex justify-content-evenly">
+              <button
+                class="btn btn-danger w-100 mx-2"
+                (click)="deleteClinic(item._id)"
+  
+              >
+                Delete
+              </button>
+              <!-- <p-button
+              (click)="deleteClinic(item._id)"
+              icon="pi pi-trash
+            "
+              label="Delete"
+            ></p-button> -->
+              <app-clinic-edit [id]="item._id"></app-clinic-edit>
+              <app-clinic-details [id]="item._id" ></app-clinic-details>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+  <br>
+  
