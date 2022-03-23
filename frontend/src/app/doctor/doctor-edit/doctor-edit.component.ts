@@ -1,6 +1,6 @@
 import { Component, OnInit,Input, OnChanges,  SimpleChanges} from '@angular/core';
 import { Doctor } from 'src/app/_models/doctor';
-import { DoctorsService } from 'src/app/doctors.service';
+import { DoctorsService } from 'src/app/services/doctors.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -36,6 +36,8 @@ export class DoctorEditComponent implements OnInit {
     console.log(this.doctor);
     this.DoctorsService.setDoctorById(this.id,this.doctor).subscribe(data=>console.log(data));
     this.display = false;
+
+
     }
   cancelUpdate() {
     this.updateFlag = false;

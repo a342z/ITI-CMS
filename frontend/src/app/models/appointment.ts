@@ -1,7 +1,7 @@
 export interface Appointment {
     _id: Number,
-    doctorId: Number,
-    patientId: Number,
+    doctorId: any,
+    patientId: any,
     time:Date,
     status:String 
 }

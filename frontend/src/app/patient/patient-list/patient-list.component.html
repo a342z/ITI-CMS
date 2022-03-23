@@ -1,15 +1,26 @@
-<!-- Table for patient  Data -->
-<button (click)="load()"
- class="btn btn-danger btn-lg  col-2 m-md-2"
- *ngIf="patient?.length"
- >Load Date</button>
 
-<div class="table-responsive">
-  <table
-    class="table table-striped table-bordered"
-    *ngIf="patient?.length"
-  >
-    <thead class="thead-dark">
+ <!-- Table for Patient Data -->
+
+ <div class="container-fluid">
+
+  <table class="table table-dark table-striped"  *ngIf="patient?.length">
+    <thead class="table-dark">
+      <tr>
+        <td>
+          <a class="btn btn-primary col-12 " [routerLink]="['/patients','add']">
+            Add Patient
+            </a>
+        </td><td></td>
+        <td></td>
+        <td>
+          <button
+          class="btn btn-outline-warning col-12"
+          (click)="load()"
+        >
+          load
+        </button>
+        </td><td></td><td></td><td></td><td></td>
+      </tr>
       <tr>
         <th>Id</th>
         <th>Name</th>
@@ -21,7 +32,7 @@
         <th>Operation</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-success">
       <tr
         *ngFor="let item of patient ">
         <td>{{ item._id }}</td>
@@ -32,9 +43,10 @@
         <td >{{ item.age  }}</td>
         <td >{{ item.gender }}</td>
 
+
         <td>
           <div class="d-flex justify-content-evenly">
-            <button type="button" class="btn btn-primary"label="Delete" (click)="deletePatient(item._id)" >delete</button>
+            <button type="button" class="btn btn-danger"label="Delete" (click)="deletePatient(item._id)" >delete</button>
 
             <app-patient-edit [id]="item._id"></app-patient-edit>
             <app-patient-details [id]="item._id" ></app-patient-details>
@@ -44,5 +56,6 @@
       </tr>
     </tbody>
   </table>
-</div>
 
+</div>
+<br>
