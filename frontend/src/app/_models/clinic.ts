@@ -3,7 +3,7 @@ export class Clinic {
       public _id: number,
       public name: string,
       public address: string,
-      public doctor: number,
+      public doctor: any,
       
     ) {}
   }

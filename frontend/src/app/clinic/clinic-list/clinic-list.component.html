@@ -32,11 +32,9 @@
         <tr>
           <th>Id</th>
           <th>Name</th>
-          <th>Age</th>
-          <th>specialization</th>
-          <th>phone</th>
+          <th>address</th>
+          <th>doctor</th>
           <th *ngIf="showAndHideImage">image</th>
-          <th>operations</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +44,6 @@
           appHighlight="#DFDFDF"
           dcolor="white"
         >
-          <td>{{ item._id }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.address }}</td>
           <td>{{ item.doctor }}</td>

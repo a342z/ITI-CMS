@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
-isReq = false;
+isReq = true;
 const schema = new mongoose.Schema({
   _id: Number,
   name: { type: String, required: isReq },

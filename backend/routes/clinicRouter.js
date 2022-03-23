@@ -2,7 +2,7 @@ const express=require("express");
 const {body,query,param}=require("express-validator")
 const router=express.Router();
 
-const controller=require("./../Controllers/clinicController");
+const controller=require("../controllers/clinicController");
 //let isAuth = require("./../middleware/authMW");
 
 router.route("/clinics")
@@ -11,12 +11,6 @@ router.route("/clinics")
 .post([
 
 ],controller.addClinic)
-
-
-
-
-router.route("/clinics/:id")
-.get([],controller.getClinic)
 
 
 
@@ -32,5 +26,7 @@ router.route("/clinics/:id")
 
 
 
+router.route("/clinics/:id")
+.get([],controller.getClinic)
 
 module.exports=router

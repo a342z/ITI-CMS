@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ClinicAddComponent implements OnInit {
   idCounter: number = 1;
-  clinic = new Clinic(this.idCounter, '','',0);
+  clinic = new Clinic(0, '','',"0");
 
   updateFlag: boolean = false;
   detailsFlag: boolean = false;
@@ -17,11 +17,8 @@ export class ClinicAddComponent implements OnInit {
   showImageFlag: boolean = true;
   rating: number = 5 ;
   add:boolean = false;
-  file:any;
 
-  onFileChange(s:any){
-      this.file=s.target.files[0];
-  }
+
   showAdd()
   {
     this.add = true ;
@@ -35,7 +32,7 @@ export class ClinicAddComponent implements OnInit {
   addClinic() {
 
     this.ClinicService.addClinic(this.clinic).subscribe(
-      (data: any)=>console.log(data)) ;
+      (data: any)=>console.log("XXXXX",data)) ;
       this.router.navigate(['/clinics']);
      ;
   }
