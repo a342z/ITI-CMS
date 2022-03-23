@@ -16,7 +16,6 @@ router.route("/doctors")
         // body("availability").notEmpty().withMessage("availability shouldn't be Empty.")
     ], controller.addDoctor)
 
-router.route("/doctors/:id")
    .delete([
         body("_id").notEmpty().withMessage("_id shouldn't be Empty.")
     ], controller.deleteDoctor)

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-// const AutoIncrement = require('mongoose-sequence')(mongoose);
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 const schema = new mongoose.Schema({
   _id: Number,
   name: String,
@@ -10,5 +10,5 @@ const schema = new mongoose.Schema({
   // rating: { type: Number, required: true },
 });
 
-// schema.plugin(AutoIncrement,{id:"doctor_id"});
+schema.plugin(AutoIncrement,{id:"doctor_id"});
 module.exports = mongoose.model("doctor", schema);
