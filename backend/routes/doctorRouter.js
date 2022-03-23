@@ -1,7 +1,7 @@
 const express = require("express");
 const { body, query, param } = require("express-validator")
 const router = express.Router();
-const controller = require("../controllers/doctorController");
+const controller = require("./../controllers/doctorController");
 
 router.route("/doctors")
     .get([], controller.getAllDoctors)
@@ -16,10 +16,12 @@ router.route("/doctors")
         // body("availability").notEmpty().withMessage("availability shouldn't be Empty.")
     ], controller.addDoctor)
 
+router.route("/doctors/:id")
    .delete([
         body("_id").notEmpty().withMessage("_id shouldn't be Empty.")
     ], controller.deleteDoctor)
 
+router.route("/doctors/:id")
     .put( [
         // body("name").notEmpty().withMessage("name shouldn't be Empty."),
         // body("email").notEmpty().withMessage("email shouldn't be Empty."),

@@ -37,8 +37,7 @@ exports.addPatient=(request, response ,next)=>{
         address : request.body.address,
         age : request.body.age,
         isMarried : request.body.isMarried,
-        gender:request.body.gender,
-        // image:"http://localhost:8080/images/"+ request.file.filename,
+        gender:request.body.gender
     })
 
     patientObj.save()
@@ -65,8 +64,7 @@ exports.editPatient = (request , response, next )=>{
             address : request.body.address,
             age : request.body.age,
             isMarried : request.body.isMarried,
-            gender:request.body.gender,
-            // image:"http://localhost:8080/images/"+ request.file.filename,
+            gender:request.body.gender
         }
     }).then(data=>{
         if(data == null ) throw new Error("Patient not found");

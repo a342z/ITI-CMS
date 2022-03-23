@@ -14,16 +14,7 @@ export class AppointmentService {
   
   getAppointments()
   {
+    console.log(this.baseURL);
     return this.http.get<Appointment[]>(this.baseURL)
-  }
-
-  addAppointment(appointment:Appointment|null)
-  {
-    return this.http.post<Appointment>(this.baseURL,appointment);
-  }
-
-  deleteAppointment(id:Number)
-  {
-    return this.http.delete<Appointment>(this.baseURL+id)
   }
 }
