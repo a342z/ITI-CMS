@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
 
-  <table class="table"  *ngIf="doctors?.length">
+  <table class="table table-dark table-striped"  *ngIf="doctors?.length">
     <thead class="table-dark">
       <tr>
         <td><h3>Search For doctors</h3>
@@ -58,7 +58,7 @@
         <td>
           <div class="d-flex justify-content-evenly">
             <button
-              class="btn btn-danger w-100 mx-2"
+              class="btn btn-danger "
               (click)="deleteDoctor(item._id)"
 
             >
