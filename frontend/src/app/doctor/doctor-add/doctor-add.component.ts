@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/_models/doctor';
-import { DoctorsService } from 'src/app/doctors.service';
+import { DoctorsService } from 'src/app/services/doctors.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-doctor-add',

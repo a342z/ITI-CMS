@@ -1,6 +1,6 @@
 import { Component, Input, OnInit ,OnChanges,SimpleChanges} from '@angular/core';
 import { Doctor } from 'src/app/_models/doctor';
-import { DoctorsService } from 'src/app/doctors.service';
+import { DoctorsService } from 'src/app/services/doctors.service';
 @Component({
   selector: 'app-doctor-details',
   templateUrl: './doctor-details.component.html',
