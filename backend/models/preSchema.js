@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// import { Prescription } from "src/app/_models/prescription";
 const increment = require("mongoose-sequence")(mongoose);
 const schema = new mongoose.Schema(
   {
@@ -27,6 +27,8 @@ const schema = new mongoose.Schema(
 
   { _id: false }
 );
+
+
 
 // schema.plugin(increment);
 
