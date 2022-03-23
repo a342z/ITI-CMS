@@ -11,6 +11,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import { RouterModule, Routes } from '@angular/router';
 import { AppointmentAddComponent } from './appointment-add/appointment-add.component';
 import { FormsModule } from '@angular/forms';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [AppointmentTableComponent, AppointmentListComponent, AppointmentAddComponent],
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     CardModule,
     InputTextModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    DropdownModule
   ],
   exports: [
     AppointmentTableComponent

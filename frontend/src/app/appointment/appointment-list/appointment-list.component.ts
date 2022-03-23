@@ -15,7 +15,11 @@ export class AppointmentListComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentService.getAppointments().subscribe(
-      data=>this.appointments = data 
+     
+      data=> {
+        this.appointments = data 
+        console.log("fkn array: ",this.appointments)
+      }
     )
   }
 

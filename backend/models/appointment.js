@@ -4,8 +4,16 @@ const AutoIncrement = require("mongoose-sequence")(mongoose);
 const appointmentSchema = new mongoose.Schema(
   {
     _id: Number,
-    doctorId: Number,
-    patientId: Number,
+    doctorId: {
+      type:Number,
+      ref:"doctor"
+    },
+
+    patientId:{
+      type:Number,
+      ref:"patient"
+    },
+    
     time:Date,
     status:String //enum
     //doctorname
