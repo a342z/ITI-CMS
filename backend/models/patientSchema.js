@@ -8,7 +8,8 @@ const schema = new mongoose.Schema({
     isMarried: Boolean,
     age:Number,
     address: String,
-    gender:String
+    gender:String,
+    // image:String
 
 
 })
