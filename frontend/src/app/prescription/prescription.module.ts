@@ -6,7 +6,7 @@ import { PrescriptionDeleteComponent } from './prescription-delete/prescription-
 import { PrescriptionDetailesComponent } from './prescription-detailes/prescription-detailes.component';
 import { PrescriptionListComponent } from './prescription-list/prescription-list.component';
 import { FormsModule } from '@angular/forms';
-import { ArraySplicePipe } from './../array-splice.pipe';
+
 import { CheckboxModule } from 'primeng/checkbox';
 import { ImageModule } from 'primeng/image';
 import { DialogModule } from 'primeng/dialog';
@@ -16,10 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
-import {
-  MatFormFieldControl,
-  MatFormFieldModule,
-} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -28,7 +25,6 @@ import {
     PrescriptionDeleteComponent,
     PrescriptionDetailesComponent,
     PrescriptionListComponent,
-    ArraySplicePipe,
   ],
   imports: [
     CommonModule,

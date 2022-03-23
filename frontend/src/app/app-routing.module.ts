@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { PrescriptionListComponent } from './prescription/prescription-list/prescription-list.component';
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 import { DoctorDetailsComponent } from './doctor/doctor-details/doctor-details.component';
 import { DoctorEditComponent } from './doctor/doctor-edit/doctor-edit.component';
@@ -16,32 +16,36 @@ import { PatientListComponent } from './patient/patient-list/patient-list.compon
 import { PatientDetailsComponent } from './patient/patient-details/patient-details.component';
 import { PatientEditComponent } from './patient/patient-edit/patient-edit.component';
 
-const routes:Routes=[
-  {path:"home",component:HomeComponent},
-  { path: "appointments", component: AppointmentTableComponent },
-  { path: "medicine", component: MedicineListComponent },
-  {path:"",redirectTo:"/home",pathMatch:"full"},
-  {path:"doctors",component:DoctorListComponent,children:
-  [
-    {path:"details/:id",component:DoctorDetailsComponent},
-    {path:"edit/:id",component:DoctorEditComponent},
-  ]},
-  {path :"patients/add" , component:PatientAddComponent},
-  {path:"patients",component:PatientListComponent,children:
-  [
-    {path:"details/:id",component:PatientDetailsComponent},
-    {path:"edit/:id",component:PatientEditComponent},
-  ]},
-  {path:"doctors/add",component:DoctorAddComponent},
-  {path:"**",component:ErrorComponent},
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'appointments', component: AppointmentTableComponent },
+  { path: 'medicine', component: MedicineListComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'doctors',
+    component: DoctorListComponent,
+    children: [
+      { path: 'details/:id', component: DoctorDetailsComponent },
+      { path: 'edit/:id', component: DoctorEditComponent },
+    ],
+  },
+  { path: 'patients/add', component: PatientAddComponent },
+  {
+    path: 'patients',
+    component: PatientListComponent,
+    children: [
+      { path: 'details/:id', component: PatientDetailsComponent },
+      { path: 'edit/:id', component: PatientEditComponent },
+    ],
+  },
+  { path: 'prescription', component: PrescriptionListComponent },
 
-
+  { path: 'doctors/add', component: DoctorAddComponent },
+  { path: '**', component: ErrorComponent },
 ];
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
