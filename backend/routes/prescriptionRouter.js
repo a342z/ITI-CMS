@@ -9,6 +9,6 @@ router
   .delete(controller.deletePrescr);
 
 router.post("/prescriptions", controller.addPrescr);
-router.get("/prescriptions", controller.allPrescr);
+router.get("/prescriptions", controller.getOnePrescr);
 
 module.exports = router;

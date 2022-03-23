@@ -27,7 +27,7 @@ exports.getOnePrescr = async (request, response, next) => {
     if (!data) {
       next();
     }
-    response.status(200).json({ data });
+    response.status(200).json(data);
   } catch (error) {
     next(error);
   }
