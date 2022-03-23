@@ -9,12 +9,15 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { AppointmentTableComponent } from './appointment/appointment-table/appointment-table.component';
+import { AppointmentListComponent } from './appointment/appointment-list/appointment-list.component';
 import { MedicineModule } from './medicine/medicine.module';
 import { MedicineListComponent } from './medicine/medicine-list/medicine-list.component';
+import { AppointmentAddComponent } from './appointment/appointment-add/appointment-add.component';
 
 const routes:Routes=[
   {path:"home",component:HomeComponent},
-  { path: "appointments", component: AppointmentTableComponent },
+  { path: "appointments", component: AppointmentListComponent},
+  { path: "appointments/add", component: AppointmentAddComponent},
   { path: "medicine", component: MedicineListComponent },
   {path:"",redirectTo:"/home",pathMatch:"full"},
   {path:"doctors",component:DoctorListComponent,children:
