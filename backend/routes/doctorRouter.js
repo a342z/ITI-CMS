@@ -1,7 +1,7 @@
 const express = require("express");
 const { body, query, param } = require("express-validator")
 const router = express.Router();
-const controller = require("./../controllers/doctorController");
+const controller = require("../controllers/doctorController");
 
 router.route("/doctors")
     .get([], controller.getAllDoctors)
