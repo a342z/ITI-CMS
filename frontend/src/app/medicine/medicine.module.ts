@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon'
 import {MatInputModule} from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-
     MatInputModule,
     MatSortModule,
     MatFormFieldModule,
+    MatPaginatorModule
   ],
   exports:[
     MedicineListComponent

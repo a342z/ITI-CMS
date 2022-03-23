@@ -5,12 +5,14 @@ import { MatTable } from '@angular/material/table';
 import { MedicineService } from '../medicine.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import {MatPaginator} from '@angular/material/paginator';
+import {AfterViewInit} from '@angular/core';
 @Component({
   selector: 'app-medicine-list',
   templateUrl: './medicine-list.component.html',
   styleUrls: ['./medicine-list.component.css']
 })
-export class MedicineListComponent implements OnInit,OnChanges {
+export class MedicineListComponent implements OnInit,OnChanges,AfterViewInit {
   public dataSource = new MatTableDataSource<Medicine>();
 
   medicine_add:Medicine = {
@@ -51,8 +53,11 @@ export class MedicineListComponent implements OnInit,OnChanges {
   info_close(){
     this.info_display = "none"
   };
-
   @ViewChild(MatTable,{static:true}) table!: MatTable<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
   add_new(){
       this.service.addMedicine(this.medicine_add).subscribe(a=>console.log(a))
     this.add_display = "none"
