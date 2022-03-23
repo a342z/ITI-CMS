@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("./../controllers/prescriptionController");
+const controller = require("../controllers/prescriptionController");
 router
   .route("/prescription/:id?")
   .get(controller.allPrescr)

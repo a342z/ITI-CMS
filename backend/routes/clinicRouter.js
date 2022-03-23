@@ -2,7 +2,7 @@ const express=require("express");
 const {body,query,param}=require("express-validator")
 const router=express.Router();
 
-const controller=require("./../Controllers/clinicController");
+const controller=require("../controllers/clinicController");
 //let isAuth = require("./../middleware/authMW");
 
 router.route("/clinics")
