@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrescriptionAddComponent } from './prescription-add/prescription-add.component';
-import { PrescriptionEditComponent } from './prescription-edit/prescription-edit.component';
-import { PrescriptionDeleteComponent } from './prescription-delete/prescription-delete.component';
-import { PrescriptionDetailesComponent } from './prescription-detailes/prescription-detailes.component';
+// import { PrescriptionAddComponent } from './prescription-add/prescription-add.component';
+// import { PrescriptionEditComponent } from './prescription-edit/prescription-edit.component';
+// import { PrescriptionDeleteComponent } from './prescription-delete/prescription-delete.component';
+// import { PrescriptionDetailesComponent } from './prescription-detailes/prescription-detailes.component';
 import { PrescriptionListComponent } from './prescription-list/prescription-list.component';
 import { FormsModule } from '@angular/forms';
 
@@ -20,10 +20,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
-    PrescriptionAddComponent,
-    PrescriptionEditComponent,
-    PrescriptionDeleteComponent,
-    PrescriptionDetailesComponent,
+    // PrescriptionAddComponent,
+    // PrescriptionEditComponent,
+    // PrescriptionDeleteComponent,
+    // PrescriptionDetailesComponent,
     PrescriptionListComponent,
   ],
   imports: [
