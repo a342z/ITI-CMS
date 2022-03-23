@@ -7,7 +7,6 @@ const schema = new mongoose.Schema({
   spec: String,
   image:String,
   age: String,
-  // rating: { type: Number, required: true },
 });
 
 schema.plugin(AutoIncrement,{id:"doctor_id"});
