@@ -8,7 +8,7 @@
       <tr>
         <td>
           <a class="btn btn-primary col-12 " [routerLink]="['/patients','add']">
-            Add New doctor
+            Add Patient
             </a>
         </td><td></td>
         <td></td>
@@ -32,7 +32,7 @@
         <th>Operation</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-success">
       <tr
         *ngFor="let item of patient ">
         <td>{{ item._id }}</td>
@@ -46,7 +46,7 @@
 
         <td>
           <div class="d-flex justify-content-evenly">
-            <button type="button" class="btn btn-primary"label="Delete" (click)="deletePatient(item._id)" >delete</button>
+            <button type="button" class="btn btn-danger"label="Delete" (click)="deletePatient(item._id)" >delete</button>
 
             <app-patient-edit [id]="item._id"></app-patient-edit>
             <app-patient-details [id]="item._id" ></app-patient-details>
