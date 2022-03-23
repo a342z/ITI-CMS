@@ -15,7 +15,8 @@ import { RouterModule } from '@angular/router';
     PatientAddComponent,
     PatientDetailsComponent,
     PatientEditComponent,
-    PatientListComponent
+    PatientListComponent,
+
   ],
   imports: [
     CommonModule,

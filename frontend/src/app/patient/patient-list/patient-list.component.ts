@@ -9,7 +9,7 @@ import { Patient } from 'src/app/_models/patient';
 })
 export class PatientListComponent implements OnInit {
 
-  searchValue:string ='';
+  query: string = '';
   patient:Patient[] | null = null ;
 
   load(){
