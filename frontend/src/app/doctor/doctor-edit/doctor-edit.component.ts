@@ -36,6 +36,8 @@ export class DoctorEditComponent implements OnInit {
     console.log(this.doctor);
     this.DoctorsService.setDoctorById(this.id,this.doctor).subscribe(data=>console.log(data));
     this.display = false;
+
+
     }
   cancelUpdate() {
     this.updateFlag = false;

@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ViewChild } from '@angular/core';
 import { PrescriptionService } from './../../services/prescription.service';
+import { Patient } from './../../_models/patient';
+import { Medicine } from './../../medicine/medicine';
 @Component({
   selector: 'app-prescription-list',
   templateUrl: './prescription-list.component.html',
@@ -25,16 +27,16 @@ export class PrescriptionListComponent implements OnInit, OnChanges {
     doctor: 1,
     patient: 1,
     medicine: 1,
-    date: new Date(1 / 1 / 1995),
+    date: new Date(1 / 1 / 2001),
   };
-  prescription: Prescription[] = [];
+  // prescription: Prescription[] = [];
   displayedColumns: string[] = [
     'ID',
     'doctor',
     'patient',
-    'price',
-    'medicine',
+
     'date',
+    'operations',
   ];
   add_display = 'none';
   info_display = 'none';
@@ -69,23 +71,27 @@ export class PrescriptionListComponent implements OnInit, OnChanges {
   }
   open_update(
     _id: number,
-    doctor: number,
-    patient: number,
-    medicine: number,
-    date: Date
+    doctor: string,
+    patient: string,
+    medicine: string,
+    date: Date,
+    doctorId: number,
+    PatientId: number,
+    medicineId :number
+  
   ) {
     this.prescription_add._id = _id;
-    this.prescription_add.doctor = doctor;
-    this.prescription_add.patient = patient;
-    this.prescription_add.medicine = medicine;
+    this.prescription_add.doctor = doctorId;
+    this.prescription_add.patient = PatientId;
+    this.prescription_add.medicine = medicineId;
     this.prescription_add.date = date;
     this.add_display = 'flex';
   }
   show_info(
     _id: number,
-    doctor: number,
-    patient: number,
-    medicine: number,
+    doctor: string,
+    patient: string,
+    medicine: any,
     date: Date
   ) {
     this.info._id = _id;

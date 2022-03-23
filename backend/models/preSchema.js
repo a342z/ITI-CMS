@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const increment = require("mongoose-sequence")(mongoose);
 const schema = new mongoose.Schema(
   {
@@ -26,6 +27,8 @@ const schema = new mongoose.Schema(
 
   { _id: false }
 );
+
+// schema.plugin(increment);
 
 schema.plugin(increment, { id: "prescriptionIncrement", inc_field: "_id" });
 module.exports = mongoose.model("prescription", schema);
