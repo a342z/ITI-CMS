@@ -18,13 +18,12 @@ import { AppointmentModule } from './appointment/appointment.module';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { RouterModule } from '@angular/router';
-import { PrescriptionComponent } from './prescription/prescription.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorComponent,
-    PrescriptionComponent
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
