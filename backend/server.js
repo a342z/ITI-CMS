@@ -10,41 +10,42 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
-const cors = require('cors');
+const cors = require("cors");
 
 //image vars
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-      // console.log(path.join(__dirname, "images"));
-      cb(null, path.join(__dirname, "images"))
+    // console.log(path.join(__dirname, "images"));
+    cb(null, path.join(__dirname, "images"));
   },
   filename: (req, file, cb) => {
-      cb(null, new Date().toLocaleDateString().replace(/\//g, "-") + "-" + file.originalname)
-  }
-})
+    cb(
+      null,
+      new Date().toLocaleDateString().replace(/\//g, "-") +
+        "-" +
+        file.originalname
+    );
+  },
+});
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype == "image/jpeg" ||
-      file.mimetype == "image/jpg" ||
-      file.mimetype == "image/png"
+  if (
+    file.mimetype == "image/jpeg" ||
+    file.mimetype == "image/jpg" ||
+    file.mimetype == "image/png"
   )
-      cb(null, true)
-  else
-      cb(null, false)
-
-}
+    cb(null, true);
+  else cb(null, false);
+};
 
 //import Patient
-const patientRouter =require("./routes/patientRouter");
+const patientRouter = require("./routes/patientRouter");
 const clinicRouter = require("./routes/clinicRouter");
 const testRouter = require("./routes/testRouter");
 const doctorRouter = require("./routes/doctorRouter");
 const medicine = require("./routes/medicineRouter");
-const appointmentRouter  = require("./routes/appointmentRouter");
+const appointmentRouter = require("./routes/appointmentRouter");
 const prescriptionRouter = require("./routes/prescriptionRouter");
-
-
-
 
 //************************DB Server****************************** */
 // create Server
@@ -54,18 +55,15 @@ const app = express();
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => {
-
     console.log("Database connected");
 
     app.listen(process.env.PORT_NUMBER || 8080, () => {
       console.log("I am Listenining Don't Worry");
     });
-
   })
   .catch((error) => {
     console.log("DB problem");
   });
-
 
 // app.listen(process.env.PORT||8080,()=>{
 //     console.log("I am Listenining Don't Worry")
@@ -89,18 +87,17 @@ app.use(morgan("tiny"));
 //CORS
 app.use(cors());
 // calling body parser
-app.use("/images",express.static(path.join(__dirname, "images")))
-app.use(multer({storage, fileFilter}).single("image"));
+app.use("/images", express.static(path.join(__dirname, "images")));
+app.use(multer({ storage, fileFilter }).single("image"));
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: false }));
 //************************Routers******************* */
 app.use(testRouter);
-app.use(prescriptionRouter);
+
 //third MW => //************ */ NOT Found => if my routers don't exist ***************
 // app.use((request, response, next) => {
 //   response.status(404).json({ data: "Not Found" });
 // });
-
 
 //Routes
 app.use(clinicRouter);
@@ -109,16 +106,14 @@ app.use(testRouter);
 app.use(medicine);
 app.use(appointmentRouter);
 app.use(patientRouter);
-
-
+app.use(prescriptionRouter);
 //Not found MW
 app.use((request, response) => {
   response.status(404).json({ data: "Not Found" });
-})
+});
 
 //Error MW
-app.use((error, request, response, next) => {  
+app.use((error, request, response, next) => {
   let status = error.status || 500;
   response.status(status).json({ Error: error + "" });
-})
-
+});

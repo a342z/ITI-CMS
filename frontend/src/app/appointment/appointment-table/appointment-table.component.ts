@@ -11,6 +11,7 @@ import { AppointmentService } from 'src/app/services/appointment.service';
   templateUrl: './appointment-table.component.html',
   styleUrls: ['./appointment-table.component.css']
 })
+
 export class AppointmentTableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
