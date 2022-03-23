@@ -39,7 +39,7 @@
             >
           </li>
 
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="authService.isLogged">
             <a
               [routerLink]="['/doctors']"
               routerLinkActive="lactive"
@@ -47,7 +47,7 @@
               >Doctors</a
             >
           </li>
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="authService.isLogged">
             <a
               [routerLink]="['/patients']"
               routerLinkActive="lactive"
@@ -55,7 +55,7 @@
               >Patients</a
             >|
           </li>
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="authService.isLogged">
             <a
               routerLink="/appointments"
               routerLinkActive="lactive"
@@ -63,7 +63,7 @@
               >Appointment</a
             >|
           </li>
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="authService.isLogged">
             <a
               [routerLink]="['/medicine']"
               routerLinkActive="lactive"
@@ -71,7 +71,7 @@
               >Medicine</a
             >
           </li>
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="authService.isLogged">
             <a
               routerLink="/prescription"
               routerLinkActive="lactive"
@@ -79,7 +79,7 @@
               >Prescription </a
             >|
           </li>
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="authService.isLogged">
             <a
               routerLink="/clinics"
               routerLinkActive="lactive"
@@ -87,7 +87,7 @@
               >Clinics </a
             >|
           </li>
-          <li class="nav-item px-3">
+          <li class="nav-item px-3" *ngIf="!authService.isLogged">
             <a
               routerLink="/login"
               routerLinkActive="lactive"
@@ -95,14 +95,14 @@
               >login</a
             >|
           </li>
-          <li class="nav-item px-3">
+          <!-- <li class="nav-item px-3">
             <a
               routerLink="/register"
               routerLinkActive="lactive"
               class="btn btn-outline-success"
               >Register</a
             >|
-          </li>
+          </li> -->
         </ul>
         <!-- <div class="d-flex">
           <a href="https://www.facebook.com/ITIchannel/" class=""

@@ -19,32 +19,39 @@ import { PatientAddComponent } from './patient/patient-add/patient-add.component
 import { PatientListComponent } from './patient/patient-list/patient-list.component';
 import { PatientDetailsComponent } from './patient/patient-details/patient-details.component';
 import { PatientEditComponent } from './patient/patient-edit/patient-edit.component';
+import { LoginComponent } from './login/login.component';
+
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
+
   { path: 'home', component: HomeComponent },
-  { path: 'appointments', component: AppointmentListComponent },
-  { path: 'appointments/add', component: AppointmentAddComponent },
-  { path: 'medicine', component: MedicineListComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'appointments', component: AppointmentListComponent , canActivate:[LoginGuard] },
+  { path: 'appointments/add', component: AppointmentAddComponent , canActivate:[LoginGuard]},
+  { path: 'medicine', component: MedicineListComponent, canActivate:[LoginGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'doctors',
     component: DoctorListComponent,
+    canActivate:[LoginGuard],
     children: [
       { path: 'details/:id', component: DoctorDetailsComponent },
       { path: 'edit/:id', component: DoctorEditComponent },
     ],
   },
-  { path: 'patients/add', component: PatientAddComponent },
+  { path: 'patients/add', component: PatientAddComponent , canActivate:[LoginGuard]},
   {
     path: 'patients',
     component: PatientListComponent,
+    canActivate:[LoginGuard],
     children: [
       { path: 'details/:id', component: PatientDetailsComponent },
       { path: 'edit/:id', component: PatientEditComponent },
     ],
   },
-  { path: 'prescription', component: PrescriptionListComponent },
-  { path: 'doctors/add', component: DoctorAddComponent },
+  { path: 'prescription', component: PrescriptionListComponent, canActivate:[LoginGuard] },
+  { path: 'doctors/add', component: DoctorAddComponent, canActivate:[LoginGuard] },
   { path: '**', component: ErrorComponent },
 ];
 @NgModule({

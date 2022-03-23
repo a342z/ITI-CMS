@@ -8,6 +8,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { ImageModule } from 'primeng/image';
+import {InputTextModule} from 'primeng/inputtext';
+import {CardModule} from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -20,9 +22,10 @@ import { DoctorModule } from './doctor/doctor.module';
 import { RouterModule } from '@angular/router';
 
 import { PrescriptionModule } from '../app/prescription/prescription.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrorComponent],
+  declarations: [AppComponent, HomeComponent, ErrorComponent, LoginComponent],
 
   imports: [
     BrowserModule,
@@ -42,6 +45,8 @@ import { PrescriptionModule } from '../app/prescription/prescription.module';
     PatientModule,
     DoctorModule,
     RouterModule,
+    CardModule,
+    InputTextModule
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},

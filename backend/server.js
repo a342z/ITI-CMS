@@ -46,7 +46,7 @@ const doctorRouter = require("./routes/doctorRouter");
 const medicine = require("./routes/medicineRouter");
 const appointmentRouter = require("./routes/appointmentRouter");
 const prescriptionRouter = require("./routes/prescriptionRouter");
-
+const authRouter = require("./routes/authRouter");
 //************************DB Server****************************** */
 // create Server
 const app = express();
@@ -107,6 +107,7 @@ app.use(medicine);
 app.use(appointmentRouter);
 app.use(patientRouter);
 app.use(prescriptionRouter);
+app.use(authRouter);
 //Not found MW
 app.use((request, response) => {
   response.status(404).json({ data: "Not Found" });
