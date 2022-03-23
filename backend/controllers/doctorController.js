@@ -36,7 +36,7 @@ exports.getAllDoctors = (request, response, next) => {
     let doctorObj = new Doctor({
         _id: request.body._id,
         name: request.body.name,
-        image:request.body.name,
+        image:"http://localhost:8080/images/"+ request.file.filename,
         age: request.body.age,
         spec: request.body.spec,
         phone: request.body.phone,
@@ -75,7 +75,6 @@ exports.updateDoctor = (request, response, next) => {
             image:request.body.image,
             age: request.body.age,
             spec: request.body.spec,
-            // report:request.body.report,
             phone: request.body.phone,
         }
     }).then(data => {

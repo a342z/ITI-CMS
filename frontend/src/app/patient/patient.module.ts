@@ -7,6 +7,7 @@ import { PatientListComponent } from './patient-list/patient-list.component';
 import { FormsModule } from '@angular/forms';
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {ButtonModule} from 'primeng/button';
     CommonModule,
     FormsModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    RouterModule
   ],
   exports:[
     PatientAddComponent,

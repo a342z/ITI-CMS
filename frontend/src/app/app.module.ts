@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule ,HTTP_INTERCEPTORS} from "@angular/common/http"
-import { ArraySplicePipe } from './array-splice.pipe';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {ImageModule} from 'primeng/image';
@@ -19,11 +18,13 @@ import { AppointmentModule } from './appointment/appointment.module';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
 import { RouterModule } from '@angular/router';
+import { PrescriptionComponent } from './prescription/prescription.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorComponent
+    ErrorComponent,
+    PrescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -39,12 +40,12 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     NgbModule,
     MedicineModule,
-    AppointmentModule,  
+    AppointmentModule,
     PatientModule,
     DoctorModule,
 
     RouterModule
-    
+
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
