@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from 'src/app/patient.service';
 import { Patient } from 'src/app/_models/patient';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-patient-add',
@@ -17,10 +19,12 @@ export class PatientAddComponent implements OnInit {
 
   addPatient() {
     this.patientService.addPatient(this.patient).subscribe(a=>console.log(a));
+    this.router.navigate(['/patients']);
+
   }
 
 
-  constructor(public patientService:PatientService) { }
+  constructor(public patientService:PatientService, public router: Router) { }
 
   ngOnInit(): void {
   }
