@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import { Component, OnInit,Input, OnChanges,  SimpleChanges} from '@angular/core';
 import { Clinic } from 'src/app/_models/clinic';
 import { ClinicService } from 'src/app/services/clinic.service';
 import { ActivatedRoute } from '@angular/router';
 import { Doctor } from 'src/app/_models/doctor';
 import { DoctorsService } from 'src/app/doctors.service';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> main
 
 @Component({
   selector: 'app-clinic-edit',
@@ -11,6 +15,7 @@ import { DoctorsService } from 'src/app/doctors.service';
   styleUrls: ['./clinic-edit.component.css']
 })
 export class ClinicEditComponent implements OnInit {
+<<<<<<< HEAD
   updateFlag: boolean = false;
   updateIndex: number = -1;
   @Input() id:number = -1;
@@ -59,6 +64,12 @@ export class ClinicEditComponent implements OnInit {
     //     this.doctor = dataa;
     //   });
     // });
+=======
+
+  constructor() { }
+
+  ngOnInit(): void {
+>>>>>>> main
   }
 
 }

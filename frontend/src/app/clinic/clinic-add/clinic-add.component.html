@@ -2,22 +2,34 @@
     <div class="m-2 col-6">
       <div class="form-group">
         <label for="name"> Name</label>
+<<<<<<< HEAD
          <input
+=======
+        <input
+>>>>>>> main
           #tname
           class="form-control"
           [(ngModel)]="clinic.name"
           id="name"
           type="text"
+<<<<<<< HEAD
           placeholder="Enter your cinick name"
   
         /> 
         
 
+=======
+          placeholder="Enter your Name"
+  
+        />
+      </div>
+>>>>>>> main
 
 
       <div class="form-group">
         <label for="address"> address</label>
         <input
+<<<<<<< HEAD
           #taddress
           class="form-control"
           [(ngModel)]="clinic.address"
@@ -43,6 +55,32 @@
       </div>
     </div>
 
+=======
+          #tname
+          class="form-control"
+          [(ngModel)]="clinic.address"
+          id="name"
+          type="text"
+          placeholder="Enter your address"
+  
+        />
+      </div>
+
+
+      
+      <div class="form-group">
+        <label for="doctor"> doctor</label>
+        <input
+          #tname
+          class="form-control"
+          [(ngModel)]="clinic.doctor"
+          id="name"
+          type="text"
+          placeholder="Enter your doctor"
+  
+        />
+      </div>
+>>>>>>> main
     <button
     class="btn btn-success my-4 col-6"
     (click)="addClinic()"

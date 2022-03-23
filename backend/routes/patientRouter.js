@@ -2,7 +2,11 @@ const express =require("express");
 const {body , param , query} = require("express-validator");
 const router =express.Router();
 
+<<<<<<< HEAD
 const controller = require("../controllers/patientController");
+=======
+const controller = require("./../Controllers/patientController");
+>>>>>>> main
 
 router.route("/patients")
         .get([],controller.getAllPatients)

@@ -21,7 +21,11 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+<<<<<<< HEAD
     "@fortawesome/fontawesome-free": "^6.1.1",
+=======
+    "@fortawesome/fontawesome-free": "^6.1.0",
+>>>>>>> main
     "@ng-bootstrap/ng-bootstrap": "^12.0.0",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.1.3",

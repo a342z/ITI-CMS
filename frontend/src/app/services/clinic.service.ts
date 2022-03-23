@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClinicService {
 
+<<<<<<< HEAD
   private clinics:Clinic[]=[];
 
 
@@ -19,6 +20,21 @@ export class ClinicService {
 
 
   
+=======
+
+
+  addClinic(clinic:Clinic){
+    let form:FormData=new FormData();//setting enctype : multipart/formdata
+    form.append("_id",clinic._id.toString());
+    form.append("name",clinic.name);
+    form.append("address",clinic.address);
+    form.append("doctor",clinic.doctor.toString());
+
+    return this.http.post<Clinic>(this.baseURL,form);
+
+  }
+
+>>>>>>> main
   getAllClinics(){
     console.log("get clinics")
     return this.http.get<Clinic[]>(this.baseURL);
@@ -26,7 +42,10 @@ export class ClinicService {
 
   deleteClinic(_id:number)
   {
+<<<<<<< HEAD
     console.log(_id)
+=======
+>>>>>>> main
     return this.http.request('delete', this.baseURL, { body: {_id} })
   }
   getClinicById(id: number) {
@@ -36,13 +55,23 @@ export class ClinicService {
 
   setClinicById(id:number,clinic:Clinic)
   {
+<<<<<<< HEAD
     console.log("ZZ",clinic  )
     return this.http.put<Clinic>(this.baseURL,clinic);
 
+=======
+    return this.http.put<Clinic>(this.baseURL,clinic);
+>>>>>>> main
   }
 
   constructor(public http:HttpClient,@Inject('baseURL') public baseURL:string) {
     this.baseURL+="clinics/"
+<<<<<<< HEAD
     
    }
 }
+=======
+
+   }
+}
+>>>>>>> main

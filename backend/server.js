@@ -8,6 +8,7 @@ const body_parser = require("body-parser");
 const morgan = require("morgan");
 //getting mongoose
 const mongoose = require("mongoose");
+<<<<<<< HEAD
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
@@ -40,13 +41,30 @@ const fileFilter = (req, file, cb) => {
 
 //import Patient
 const patientRouter = require("./routes/patientRouter");
+=======
+
+
+
+
+//import Patient
+const patientRouter =require("./routes/patientRouter");
+>>>>>>> main
 const clinicRouter = require("./routes/clinicRouter");
 const testRouter = require("./routes/testRouter");
 const doctorRouter = require("./routes/doctorRouter");
 const medicine = require("./routes/medicineRouter");
+<<<<<<< HEAD
 const appointmentRouter = require("./routes/appointmentRouter");
 const prescriptionRouter = require("./routes/prescriptionRouter");
 const authRouter = require("./routes/authRouter");
+=======
+const appointmentRouter  = require("./routes/appointmentRouter");
+const prescriptionRouter = require("./routes/prescriptionRouter");
+
+
+
+
+>>>>>>> main
 //************************DB Server****************************** */
 // create Server
 const app = express();
@@ -55,21 +73,34 @@ const app = express();
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
     console.log("Database connected");
 
     app.listen(process.env.PORT_NUMBER || 8080, () => {
       console.log("I am Listenining Don't Worry");
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   })
   .catch((error) => {
     console.log("DB problem");
   });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 // app.listen(process.env.PORT||8080,()=>{
 //     console.log("I am Listenining Don't Worry")
 // });
 
 // First MW =>  request url and method-request- using morgan package
+<<<<<<< HEAD
 // app.use(morgan(":method :url"));
 //second MW => // CORS MW that allow access control origin, methods, headers
 // to make any other website communicate with my server as" RESTful API"
@@ -89,15 +120,39 @@ app.use(cors());
 // calling body parser
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(multer({ storage, fileFilter }).single("image"));
+=======
+app.use(morgan(":method :url"));
+//second MW => // CORS MW that allow access control origin, methods, headers
+// to make any other website communicate with my server as" RESTful API"
+app.use((request, response, next) => {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header(
+    "Access-Control-Allow-Methods",
+    "GET,POST,DELETE,PUT,OPTIONS"
+  );
+  response.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
+  next();
+});
+
+// calling body parser
+>>>>>>> main
 app.use(body_parser.json());
 app.use(body_parser.urlencoded({ extended: false }));
 //************************Routers******************* */
 app.use(testRouter);
+<<<<<<< HEAD
 
+=======
+app.use(prescriptionRouter);
+>>>>>>> main
 //third MW => //************ */ NOT Found => if my routers don't exist ***************
 // app.use((request, response, next) => {
 //   response.status(404).json({ data: "Not Found" });
 // });
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 
 //Routes
 app.use(clinicRouter);
@@ -106,6 +161,7 @@ app.use(testRouter);
 app.use(medicine);
 app.use(appointmentRouter);
 app.use(patientRouter);
+<<<<<<< HEAD
 app.use(prescriptionRouter);
 app.use(authRouter);
 //Not found MW
@@ -118,3 +174,18 @@ app.use((error, request, response, next) => {
   let status = error.status || 500;
   response.status(status).json({ Error: error + "" });
 });
+=======
+
+
+//Not found MW
+app.use((request, response) => {
+  response.status(404).json({ data: "Not Found" });
+})
+
+//Error MW
+app.use((error, request, response, next) => {  
+  let status = error.status || 500;
+  response.status(status).json({ Error: error + "" });
+})
+
+>>>>>>> main

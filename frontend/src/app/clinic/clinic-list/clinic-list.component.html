@@ -14,6 +14,7 @@
               Add New clinic
               </a>
           </td><td></td>
+<<<<<<< HEAD
           <td>
       
         </td>
@@ -26,6 +27,31 @@
           <th>doctor</th>
           <th>op</th>
 
+=======
+          <td><button
+            class="btn btn-outline-warning col-12"
+            (click)="toggleImage($event.target)"
+          >
+            Hide Image
+          </button></td>
+          <td>
+            <button
+            class="btn btn-outline-warning col-12"
+            (click)="load()"
+          >
+            load
+          </button>
+          </td><td></td><td></td>
+        </tr>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>specialization</th>
+          <th>phone</th>
+          <th *ngIf="showAndHideImage">image</th>
+          <th>operations</th>
+>>>>>>> main
         </tr>
       </thead>
       <tbody>
@@ -35,6 +61,10 @@
           appHighlight="#DFDFDF"
           dcolor="white"
         >
+<<<<<<< HEAD
+=======
+          <td>{{ item._id }}</td>
+>>>>>>> main
           <td>{{ item.name }}</td>
           <td>{{ item.address }}</td>
           <td>{{ item.doctor }}</td>
@@ -57,7 +87,11 @@
               label="Delete"
             ></p-button> -->
               <app-clinic-edit [id]="item._id"></app-clinic-edit>
+<<<<<<< HEAD
               <!-- <app-clinic-details [id]="item._id" ></app-clinic-details> -->
+=======
+              <app-clinic-details [id]="item._id" ></app-clinic-details>
+>>>>>>> main
             </div>
           </td>
         </tr>

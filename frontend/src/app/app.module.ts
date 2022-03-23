@@ -19,6 +19,7 @@ import { MedicineModule } from './medicine/medicine.module';
 import { AppointmentModule } from './appointment/appointment.module';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
+<<<<<<< HEAD
 import { RouterModule } from '@angular/router';
 
 import { PrescriptionModule } from '../app/prescription/prescription.module';
@@ -32,6 +33,21 @@ import { ClinicModule } from './clinic/clinic.module';
     BrowserModule,
     AppRoutingModule,
     PrescriptionModule,
+=======
+import { ClinicModule } from './clinic/clinic.module';
+
+import { RouterModule } from '@angular/router';
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ErrorComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+
+>>>>>>> main
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
@@ -42,6 +58,7 @@ import { ClinicModule } from './clinic/clinic.module';
     FormsModule,
     NgbModule,
     MedicineModule,
+<<<<<<< HEAD
     AppointmentModule,
     PatientModule,
     DoctorModule,
@@ -49,6 +66,14 @@ import { ClinicModule } from './clinic/clinic.module';
     CardModule,
     InputTextModule,
     ClinicModule
+=======
+    AppointmentModule,  
+    PatientModule,
+    DoctorModule,
+    ClinicModule,
+    RouterModule
+    
+>>>>>>> main
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},

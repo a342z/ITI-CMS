@@ -12,13 +12,20 @@ export class ClinicListComponent implements OnInit {
   query: string = '';
   showAndHideImage: boolean = true;
 
+<<<<<<< HEAD
   constructor(public ClinicService: ClinicService) { }
   clinics: Clinic[] | null = null;
   sub: Subscription | null = null;
+=======
+  constructor(public ClinicService: ClinicService) {}
+  clinics:Clinic[] | null = null ;
+  sub:Subscription|null=null;
+>>>>>>> main
   clinicDetails = 0;
   clinicedit = 0;
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this.load();
   }
   clin(clinics: Clinic[]) {
@@ -40,6 +47,20 @@ export class ClinicListComponent implements OnInit {
     this.ClinicService.deleteClinic(id).subscribe(data => console.log(data));
     this.load();
   }
+=======
+  this.load();
+}
+
+load(){
+  console.log("AAA",this.clinics)
+  this.ClinicService.getAllClinics().subscribe(clinics => this.clinics = clinics);
+  console.log("BBBB",this.clinics);
+}
+deleteClinic(id: number) {
+  this.ClinicService.deleteClinic(id).subscribe(data => console.log(data)) ;
+  this.load();
+}
+>>>>>>> main
 
   toggleImage(target: any) {
     target.textContent = this.showAndHideImage ? 'Show Image' : 'Hide Image';

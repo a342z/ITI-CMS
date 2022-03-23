@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
  <!-- Table for Patient Data -->
 
@@ -21,6 +22,20 @@
         </button>
         </td><td></td><td></td><td></td><td></td>
       </tr>
+=======
+<!-- Table for patient  Data -->
+<button (click)="load()"
+ class="btn btn-danger btn-lg  col-2 m-md-2"
+ *ngIf="patient?.length"
+ >Load Date</button>
+
+<div class="table-responsive">
+  <table
+    class="table table-striped table-bordered"
+    *ngIf="patient?.length"
+  >
+    <thead class="thead-dark">
+>>>>>>> main
       <tr>
         <th>Id</th>
         <th>Name</th>
@@ -32,7 +47,11 @@
         <th>Operation</th>
       </tr>
     </thead>
+<<<<<<< HEAD
     <tbody class="table-success">
+=======
+    <tbody>
+>>>>>>> main
       <tr
         *ngFor="let item of patient ">
         <td>{{ item._id }}</td>
@@ -43,10 +62,16 @@
         <td >{{ item.age  }}</td>
         <td >{{ item.gender }}</td>
 
+<<<<<<< HEAD
 
         <td>
           <div class="d-flex justify-content-evenly">
             <button type="button" class="btn btn-danger"label="Delete" (click)="deletePatient(item._id)" >delete</button>
+=======
+        <td>
+          <div class="d-flex justify-content-evenly">
+            <button type="button" class="btn btn-primary"label="Delete" (click)="deletePatient(item._id)" >delete</button>
+>>>>>>> main
 
             <app-patient-edit [id]="item._id"></app-patient-edit>
             <app-patient-details [id]="item._id" ></app-patient-details>
@@ -56,6 +81,11 @@
       </tr>
     </tbody>
   </table>
+<<<<<<< HEAD
 
 </div>
 <br>
+=======
+</div>
+
+>>>>>>> main

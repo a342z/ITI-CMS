@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+<<<<<<< HEAD
 // import { Prescription } from "src/app/_models/prescription";
 
 const prescription = require("./../models/preSchema.js");
@@ -35,6 +36,18 @@ exports.getOnePrescr = async (request, response, next) => {
   } catch (error) {
     next(error);
   }
+=======
+const prescription = require("./../models/preSchema.js");
+exports.allPrescr = (request, respone, next) => {
+  prescription
+    .find({})
+    .then((data) => {
+      response.status(200).json(data);
+    })
+    .catch((error) => {
+      next(error);
+    });
+>>>>>>> main
 };
 
 exports.addPrescr = (request, response, next) => {
@@ -48,6 +61,7 @@ exports.addPrescr = (request, response, next) => {
     throw error;
   }
   let prescObject = new prescription({
+<<<<<<< HEAD
     _id: request.body.id,
     doctor: request.body.doctor,
     patient: request.body.patient,
@@ -62,6 +76,18 @@ exports.addPrescr = (request, response, next) => {
     .catch((error) => {
       next(error);
     });
+=======
+    doctorName: request.body.doctorName,
+    patientName: request.body.patientName,
+    medecineName: request.body.medecineName,
+    purchaseDate: request.body.purchaseDate,
+  });
+  prescObject.save().then((data) => {
+    response.status;
+    (200).json;
+    ({ data: "prescription Added", data }.catch((error) => next(error)));
+  });
+>>>>>>> main
 };
 
 exports.updatePrescr = (request, response, next) => {
@@ -83,9 +109,15 @@ exports.updatePrescr = (request, response, next) => {
         },
         {
           $set: {
+<<<<<<< HEAD
             doctor: request.body.doctor,
             patient: request.body.patient,
             medicine: request.body.medicine,
+=======
+            doctorName: request.body.doctorName,
+            patientName: request.body.patientName,
+            medecineName: request.body.patientName,
+>>>>>>> main
           },
         }
       ).then;
