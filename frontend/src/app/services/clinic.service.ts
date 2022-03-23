@@ -12,12 +12,8 @@ export class ClinicService {
 
 
   addClinic(clinic:Clinic){
-    let form:FormData=new FormData();//setting enctype : multipart/formdata
-    form.append("name",clinic.name);
-    form.append("address",clinic.address);
-    form.append("doctor",clinic.doctor);
     console.log(clinic)
-    return this.http.post<Clinic>(this.baseURL,form);
+    return this.http.post<Clinic>(this.baseURL,clinic);
 
   }
 
@@ -40,7 +36,9 @@ export class ClinicService {
 
   setClinicById(id:number,clinic:Clinic)
   {
+    console.log("ZZ",clinic  )
     return this.http.put<Clinic>(this.baseURL,clinic);
+
   }
 
   constructor(public http:HttpClient,@Inject('baseURL') public baseURL:string) {

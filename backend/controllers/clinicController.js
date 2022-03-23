@@ -76,30 +76,56 @@ const Clinic = require("./../models/clinicSchema");
   
 
 
-exports.updateClinic = async (request, response, next) => {
-    try {
-        const clinic = await Clinic.findOne({ _id: request.params.id });
-        if (!clinic) generateError(403, "User not found")
 
 
-        let object = new Clinic({
-            name: request.body.name,
-            address: request.body.address,
-            doctor : request.body.doctor
-            
-          });
 
-          object
-          .save()
-          .then((data) => {
-            response.status(201).json({ message: "updated clinic successfully", data });
-          })
-          .catch((error) => next(error));
 
-    } catch (error) {
-        next(error)
-    }
+
+
+
+
+
+
+
+
+
+
+exports.updateClinic = (request, response, next) => {
+  console.log(request.body)
+  let errors = validationResult(request);
+  if (!errors.isEmpty()) {
+      let error = new Error();
+      error.status = 422;
+      error.message = errors.array().reduce((current, object) => current + object.msg + " ", "")
+      throw error;
+
+  }
+
+  Clinic.updateOne({ _id: request.body.data._id }, {
+      $set: {
+        name: request.body.name,
+        address: request.body.address,
+        doctor : request.body.doctor
+      }
+  }).then(data => {
+
+      if (data == null) throw new Error("doctor not found");
+      response.status(200).json({ message: "Updated", data })
+  })
+      .catch(error => next(error))
 }
+
+
+
+
+
+
+
+
+
+
+
+
 /* exports.deleteClinic = async (request, response, next) => {
     try {
         if (!request.params.id) next();

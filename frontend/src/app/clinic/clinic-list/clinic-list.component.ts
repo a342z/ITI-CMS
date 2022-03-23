@@ -23,6 +23,7 @@ export class ClinicListComponent implements OnInit {
   }
   clin(clinics: Clinic[]) {
     for (let i = 0; i < clinics.length; i++) {
+      if(clinics[i].doctor!=null)
       clinics[i].doctor = clinics[i].doctor.name;
     }
     this.clinics = clinics;

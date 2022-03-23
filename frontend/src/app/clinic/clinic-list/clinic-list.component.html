@@ -14,27 +14,18 @@
               Add New clinic
               </a>
           </td><td></td>
-          <td><button
-            class="btn btn-outline-warning col-12"
-            (click)="toggleImage($event.target)"
-          >
-            Hide Image
-          </button></td>
           <td>
-            <button
-            class="btn btn-outline-warning col-12"
-            (click)="load()"
-          >
-            load
-          </button>
-          </td><td></td><td></td>
+      
+        </td>
+    
+     
         </tr>
         <tr>
-          <th>Id</th>
           <th>Name</th>
           <th>address</th>
           <th>doctor</th>
-          <th *ngIf="showAndHideImage">image</th>
+          <th>op</th>
+
         </tr>
       </thead>
       <tbody>
@@ -66,7 +57,7 @@
               label="Delete"
             ></p-button> -->
               <app-clinic-edit [id]="item._id"></app-clinic-edit>
-              <app-clinic-details [id]="item._id" ></app-clinic-details>
+              <!-- <app-clinic-details [id]="item._id" ></app-clinic-details> -->
             </div>
           </td>
         </tr>
