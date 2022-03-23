@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Medicine } from '../medicine';
 import { ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { MedicineService } from '../medicine.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-medicine-list',
   templateUrl: './medicine-list.component.html',
   styleUrls: ['./medicine-list.component.css']
 })
-export class MedicineListComponent implements OnInit {
+export class MedicineListComponent implements OnInit,OnChanges {
+  public dataSource = new MatTableDataSource<Medicine>();
+
   medicine_add:Medicine = {
     _id:1,
       comercial_name:"Calcijex",
       medical_name:"Calcitriol",
       price:10,
-      image:"dvrvrvrvrvrvrvrb",
+      image:"../../../assets/img/logo.jpg",
       manufacturer:"icvkecve",
       type:"tablet",
       side_effects:"evoevolejmvoe",
@@ -30,74 +35,7 @@ export class MedicineListComponent implements OnInit {
       side_effects:"evoevolejmvoe",
       description:"envkienvienvie"
   }
-  medicine_list:Medicine[]=[
-    {
-      _id:1,
-      comercial_name:"Calcijex",
-      medical_name:"Calcitriol",
-      price:10,
-      image:"dvrvrvrvrvrvrvrb",
-      manufacturer:"icvkecve",
-      type:"tablet",
-      side_effects:"evoevolejmvoe",
-      description:"envkienvienvie"
-    },
-    {
-      _id:2,
-      comercial_name:"Calcijex",
-      medical_name:"Calcitriol",
-      price:10,
-      image:"dvrvrvrvrvrvrvrb",
-      manufacturer:"icvkecve",
-      type:"tablet",
-      side_effects:"evoevolejmvoe",
-      description:"envkienvienvie"
-    },
-    {
-      _id:3,
-      comercial_name:"brtbb",
-      medical_name:"Calcitriol",
-      price:10,
-      image:"dvrvrvrvrvrvrvrb",
-      manufacturer:"icvkecve",
-      type:"tablet",
-      side_effects:"evoevolejmvoe",
-      description:"envkienvienvie"
-    },
-    {
-      _id:4,
-      comercial_name:"123243",
-      medical_name:"Calcitriol",
-      price:10,
-      image:"dvrvrvrvrvrvrvrb",
-      manufacturer:"icvkecve",
-      type:"tablet",
-      side_effects:"evoevolejmvoe",
-      description:"envkienvienvie"
-    },
-    {
-      _id:5,
-      comercial_name:"Calcijex",
-      medical_name:"Calcitriol",
-      price:10,
-      image:"dvrvrvrvrvrvrvrb",
-      manufacturer:"icvkecve",
-      type:"tablet",
-      side_effects:"evoevolejmvoe",
-      description:"envkienvienvie"
-    },
-    {
-      _id:6,
-      comercial_name:"Calcijex",
-      medical_name:"Calcitriol",
-      price:10,
-      image:"dvrvrvrvrvrvrvrb",
-      manufacturer:"icvkecve",
-      type:"tablet",
-      side_effects:"evoevolejmvoe",
-      description:"envkienvienvie"
-    }
-  ]
+  medicine_list:Medicine[]=[]
   displayedColumns: string[] = ['ID', 'cname', 'mname', 'price','manufacturer','type','operations'];
   add_display = "none"
   info_display = "none"
@@ -116,27 +54,16 @@ export class MedicineListComponent implements OnInit {
 
   @ViewChild(MatTable,{static:true}) table!: MatTable<any>;
   add_new(){
-      this.medicine_add._id = this.medicine_list.length+1
-      this.medicine_list.push(this.medicine_add)
-      this.table.renderRows();
+      this.service.addMedicine(this.medicine_add).subscribe(a=>console.log(a))
     this.add_display = "none"
+    window.location.reload();
   };
   update_one(){
-    for( let item of this.medicine_list){
-      if(this.medicine_add._id === item._id){
-        item.comercial_name=this.medicine_add.comercial_name;
-        item.medical_name=this.medicine_add.medical_name;
-        item.price=this.medicine_add.price;
-        item.image=this.medicine_add.image;
-        item.manufacturer=this.medicine_add.manufacturer;
-        item.type=this.medicine_add.type;
-        item.description=this.medicine_add.description;
-        item.side_effects=this.medicine_add.side_effects;
-        
-      }
-      this.table.renderRows();
-      this.add_display = "none"
-  }
+    this.service.updateMedicine(this.medicine_add).subscribe(a=>console.log(a))
+    this.add_display = "none"
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['/medicine']);
+  });
 }
   open_update(
     _id:number,
@@ -184,10 +111,23 @@ export class MedicineListComponent implements OnInit {
       this.info_open()
       
   }
+  delete_one(_id:number){
+    this.service.delMedicine(_id).subscribe(a=>console.log(a))
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate(['/medicine']);
+  });
+  }
+  public doFilter = (e:any) => {
+    this.dataSource.filter = e.target.value.trim().toLocaleLowerCase();
+  }
 
-  constructor() { }
+  constructor(public service:MedicineService,public router:Router) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.service.getAllMedicines().subscribe(a=>this.dataSource.data = a as Medicine[])
+  }
 
   ngOnInit(): void {
+    this.service.getAllMedicines().subscribe(a=>this.dataSource.data = a as Medicine[])
   }
 
 }

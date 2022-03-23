@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'
 import {MatInputModule} from '@angular/material/input';
-
-
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,9 @@ import {MatInputModule} from '@angular/material/input';
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    MatInputModule
-    
+    MatInputModule,
+    MatSortModule,
+    MatFormFieldModule,
   ],
   exports:[
     MedicineListComponent
