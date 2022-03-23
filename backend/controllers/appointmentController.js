@@ -2,10 +2,7 @@ const Appointment = require("./../models/appointment");
 
 exports.getAllAppoitnments = async (request, response) => {
   try {
-    const appointments = await Appointment.find().
-    populate({ path: 'patientId', select: 'name'}).
-    populate({ path: 'doctorId', select: 'name'});
-
+    const appointments = await Appointment.find();
     response.status(200).json(appointments);
   } catch (error) {
     response.status(500).json(error.message);

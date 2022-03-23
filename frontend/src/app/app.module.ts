@@ -4,10 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ButtonModule } from 'primeng/button';
-import { DialogModule } from 'primeng/dialog';
-import { ImageModule } from 'primeng/image';
+import { HttpClientModule ,HTTP_INTERCEPTORS} from "@angular/common/http"
+import { ArraySplicePipe } from './array-splice.pipe';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
+import {ImageModule} from 'primeng/image';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -17,17 +18,19 @@ import { MedicineModule } from './medicine/medicine.module';
 import { AppointmentModule } from './appointment/appointment.module';
 import { PatientModule } from './patient/patient.module';
 import { DoctorModule } from './doctor/doctor.module';
+import { ClinicModule } from './clinic/clinic.module';
+
 import { RouterModule } from '@angular/router';
-
-import { PrescriptionModule } from '../app/prescription/prescription.module';
-
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ErrorComponent],
-
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    ErrorComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PrescriptionModule,
+
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
@@ -38,15 +41,18 @@ import { PrescriptionModule } from '../app/prescription/prescription.module';
     FormsModule,
     NgbModule,
     MedicineModule,
-    AppointmentModule,
+    AppointmentModule,  
     PatientModule,
     DoctorModule,
-    RouterModule,
+    ClinicModule,
+    RouterModule
+    
   ],
   providers: [
     // {provide:HTTP_INTERCEPTORS,multi:true},
-    { provide: 'baseURL', useValue: 'http://localhost:8080/' },
+      { provide: "baseURL", useValue: "http://localhost:8080/" }
+
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

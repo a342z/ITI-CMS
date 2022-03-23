@@ -5,12 +5,9 @@ const express = require("express");
 
 
 exports.show_medicines = (request, response, next) => {
-  //Medicine.counterReset('_id', function(err) {
-   //console.log(err)
-//});
   Medicine.find({})
     .then((data) => {
-      response.status(200).json(data);
+      response.status(200).json({ data });
     })
     .catch((error) => {
       next(error);
@@ -29,13 +26,13 @@ exports.add_medicine = (request, response, next) => {
 //   }
 //   if (request.role == "admin" || request.role == "seller") {
     let object = new Medicine({
-      //_id:request.body._id,  
+      _id:request.body._id,  
       comercial_name: request.body.comercial_name,
       medical_name: request.body.medical_name,
       price: request.body.price,
       manufacturer: request.body.manufacturer,
       description: request.body.description,
-      image: request.body.image,
+      images: request.body.images,
       type: request.body.type,
       side_effects: request.body.side_effects,
     });
@@ -56,7 +53,7 @@ exports.add_medicine = (request, response, next) => {
 //--------------------------------------------------------------------------------------------------
 exports.delete_medicine = (request, response, next) => {
 //   if (request.role == "admin") {
-    Medicine.findByIdAndDelete({ _id: request.params.id })
+    Medicine.findByIdAndDelete({ _id: request.body.id })
       .then((data) => {
         response.status(201).json({ message: "deleted", data });
       })
@@ -88,7 +85,7 @@ exports.delete_medicine = (request, response, next) => {
 exports.update_medicine = (request, response, next) => {
 //   if (request.role == "admin") {
     Medicine.findByIdAndUpdate(
-      { _id: request.body._id },
+      { _id: request.body.id },
       {
         $set: {
             comercial_name: request.body.comercial_name,
@@ -96,7 +93,7 @@ exports.update_medicine = (request, response, next) => {
             price: request.body.price,
             manufacturer: request.body.manufacturer,
             description: request.body.description,
-            image: request.body.image,
+            images: request.body.images,
             type: request.body.type,
             side_effects: request.body.side_effects,
         },
@@ -149,7 +146,7 @@ exports.update_medicine = (request, response, next) => {
 exports.show_medicine = (request, response, next) => {
   Medicine.find({ _id: request.params.id })
     .then((data) => {
-      response.status(200).json( data );
+      response.status(200).json({ data });
     })
     .catch((error) => {
       next(error);
