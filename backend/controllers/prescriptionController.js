@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+// import { Prescription } from "src/app/_models/prescription";
 
 const prescription = require("./../models/preSchema.js");
 
@@ -15,6 +16,9 @@ exports.allPrescr = async (request, response, next) => {
   }
 };
 exports.getOnePrescr = async (request, response, next) => {
+  // Prescription.counterReset("_id", function (err) {
+  //   console.log(err);
+  // });
   try {
     const id = request.params.id;
 
