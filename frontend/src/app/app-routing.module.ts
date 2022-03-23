@@ -20,6 +20,12 @@ import { PatientListComponent } from './patient/patient-list/patient-list.compon
 import { PatientDetailsComponent } from './patient/patient-details/patient-details.component';
 import { PatientEditComponent } from './patient/patient-edit/patient-edit.component';
 
+
+
+import { ClinicListComponent } from './clinic/clinic-list/clinic-list.component';
+import { ClinicAddComponent } from './clinic/clinic-add/clinic-add.component';
+import { ClinicEditComponent } from './clinic/clinic-edit/clinic-edit.component';
+import { ClinicDetailsComponent } from './clinic/clinic-details/clinic-details.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'appointments', component: AppointmentListComponent },
@@ -45,6 +51,14 @@ const routes: Routes = [
   },
   { path: 'prescription', component: PrescriptionListComponent },
   { path: 'doctors/add', component: DoctorAddComponent },
+  {path:"clinics",component:ClinicListComponent,children:
+  [
+    {path:"details/:id",component:ClinicDetailsComponent},
+    {path:"edit/:id",component:ClinicEditComponent},
+  ]},
+  {path:"clinics/add",component:ClinicAddComponent},
+  {path:"**",component:ErrorComponent},
+
   { path: '**', component: ErrorComponent },
 ];
 @NgModule({

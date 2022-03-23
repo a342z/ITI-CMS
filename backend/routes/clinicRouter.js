@@ -14,12 +14,6 @@ router.route("/clinics")
 
 
 
-
-router.route("/clinics/:id")
-.get([],controller.getClinic)
-
-
-
 .put([
 
 ],controller.updateClinic)
@@ -32,5 +26,7 @@ router.route("/clinics/:id")
 
 
 
+router.route("/clinics/:id")
+.get([],controller.getClinic)
 
 module.exports=router
